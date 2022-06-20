@@ -14,6 +14,19 @@ body {
   /* animation: blink 10s ease infinite; */
   font-family: "Social";
   overflow: hidden;
+  /* #bg_stars {
+    display: block;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -99;
+
+    animation: zoom 1s normal ease-in;
+    animation-fill-mode: forwards;
+  } */
 }
 
 body #circle {
@@ -23,30 +36,13 @@ body #circle {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  width: 0.9vh;
-  height: 0.9vh;
-  -webkit-animation: zoom 1s normal ease-out;
-          animation: zoom 1s normal ease-out;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  width: 80vh;
+  height: 80vh;
   background: radial-gradient(50% 50% at 50% 50%, #7ccfff 0%, #00a3ff 100%);
-  -webkit-filter: blur(0.02em);
-          filter: blur(0.02em);
-}
-
-body #bg_stars {
-  display: block;
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  z-index: -99;
-  -webkit-animation: zoom 1s normal ease-in;
-          animation: zoom 1s normal ease-in;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  -webkit-filter: blur(2em);
+          filter: blur(2em);
+  -webkit-animation: grow 5.45s ease infinite;
+          animation: grow 5.45s ease infinite;
 }
 
 .squircle {
@@ -81,27 +77,45 @@ body #bg_stars {
   }
 }
 
-@-webkit-keyframes zoom {
+@-webkit-keyframes grow {
   0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
+    width: 40vh;
+    height: 40vh;
+    -webkit-filter: blur(2em) brightness(0.2);
+            filter: blur(2em) brightness(0.2);
+  }
+  40% {
+    width: 80vh;
+    height: 80vh;
+    -webkit-filter: blur(2em) brightness(1);
+            filter: blur(2em) brightness(1);
   }
   100% {
-    -webkit-transform: scale(100);
-            transform: scale(100);
-    opacity: 1;
+    width: 40vh;
+    height: 40vh;
+    -webkit-filter: blur(2em) brightness(0.2);
+            filter: blur(2em) brightness(0.2);
   }
 }
 
-@keyframes zoom {
+@keyframes grow {
   0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
+    width: 40vh;
+    height: 40vh;
+    -webkit-filter: blur(2em) brightness(0.2);
+            filter: blur(2em) brightness(0.2);
+  }
+  40% {
+    width: 80vh;
+    height: 80vh;
+    -webkit-filter: blur(2em) brightness(1);
+            filter: blur(2em) brightness(1);
   }
   100% {
-    -webkit-transform: scale(100);
-            transform: scale(100);
-    opacity: 1;
+    width: 40vh;
+    height: 40vh;
+    -webkit-filter: blur(2em) brightness(0.2);
+            filter: blur(2em) brightness(0.2);
   }
 }
 /*# sourceMappingURL=play.css.map */

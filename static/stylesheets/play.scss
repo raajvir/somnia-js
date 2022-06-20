@@ -26,17 +26,16 @@ body {
     transform: translate(-50%, -50%);
 
     border-radius: 50%;
-    width: 0.9vh;
-    height: 0.9vh;
-
-    animation: zoom 1s normal ease-out;
-    animation-fill-mode: forwards;
+    width: 80vh;
+    height: 80vh;
 
     background: radial-gradient(50% 50% at 50% 50%, #7ccfff 0%, #00a3ff 100%);
-    filter: blur(0.02em);
+    filter: blur(2em);
+
+    animation: grow 5.45s ease infinite;
   }
 
-  #bg_stars {
+  /* #bg_stars {
     display: block;
     height: 100vh;
     width: 100vw;
@@ -48,7 +47,7 @@ body {
 
     animation: zoom 1s normal ease-in;
     animation-fill-mode: forwards;
-  }
+  } */
 }
 
 .squircle {
@@ -71,13 +70,22 @@ body {
   }
 }
 
-@keyframes zoom {
+@keyframes grow {
   0% {
-    transform: scale(1);
+    width: 40vh;
+    height: 40vh;
+    filter: blur(2em) brightness(0.2);
+  }
+
+  40% {
+    width: 80vh;
+    height: 80vh;
+    filter: blur(2em) brightness(1);
   }
 
   100% {
-    transform: scale(100);
-    opacity: 1;
+    width: 40vh;
+    height: 40vh;
+    filter: blur(2em) brightness(0.2);
   }
 }
