@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dodow Emulator</title>
+    <link rel="stylesheet" href="/static/stylesheets/index.css">
+    <script>
+        if (CSS && 'paintWorklet' in CSS) CSS.paintWorklet.addModule('https://unpkg.com/smooth-corners')
+    </script>
+    <script src="/scripts/play.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <h2>Welcome to <b>Somnia</b></h2>
+        <div class="buttons">
+            <div class="sq_btn" role="button" onclick="play(0)">
+                8 min
+            </div>
+            <div class="sq_btn" role="button" onclick="play(1)">
+                20 min
+            </div>
+        </div>
+    </div>
+
+    <img src="/static/images/stars.svg" alt="" srcset="" id="bg_stars">
+</body>
+
+</html>

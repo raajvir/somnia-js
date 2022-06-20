@@ -1,0 +1,5 @@
+When button clicked:
+    Timer start
+    start blinking at 11 b/s
+        40% inhalation, 60% exhalation
+    reduce blinking rate to 6 b/s
