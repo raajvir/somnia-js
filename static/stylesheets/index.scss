@@ -17,6 +17,24 @@ body {
   /* animation: blink 10s ease infinite; */
   font-family: "Social";
 
+  #circle {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+    width: 80vh;
+    height: 80vh;
+
+    background: radial-gradient(50% 50% at 50% 50%, #7ccfff 0%, #00a3ff 100%);
+    filter: blur(2em);
+
+    animation: grow 5.45s ease infinite;
+  }
+
   #bg_stars {
     height: 100vh;
     width: 100vw;
@@ -106,5 +124,43 @@ body {
   /* 80% {background-color: #808080; } */
   100% {
     background-color: #252524;
+  }
+}
+
+.disappearments {
+  animation: disappear 0.1s ease;
+  animation-fill-mode: forwards;
+}
+
+.disappear {
+  display: 'block';
+}
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes grow {
+  0% {
+    width: 40vh;
+    height: 40vh;
+    filter: blur(2em) brightness(0.2);
+  }
+
+  40% {
+    width: 80vh;
+    height: 80vh;
+    filter: blur(2em) brightness(1);
+  }
+
+  100% {
+    width: 40vh;
+    height: 40vh;
+    filter: blur(2em) brightness(0.2);
   }
 }
