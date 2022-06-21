@@ -12,13 +12,15 @@ function play(type) {
 
     if (type === 0) {
         console.log('8 minute sleep session initiated')
-        enableNoSleep(8*60*1000);
+        // enableNoSleep(8*60*1000);
+        timer(8);
         initiate(8);
     }
 
     else if (type === 1) {
         console.log('20 minute sleep session initiated')
-        enableNoSleep(20*60*1000);
+        // enableNoSleep(20*60*1000);
+        timer(20);
         initiate(20);
     }
 }
@@ -33,14 +35,22 @@ function wait(ms) {
 
 const timer = ms => new Promise(res => setTimeout(res, ms))
 
-async function initiate(time) {
-    // console.log('ejasdf');
+async function timekeeper(time) {
     var timeSeconds = 60 * time;
     console.log(timeSeconds)
-    // noSleep.enable();
+    await timer(timeSeconds)
 
+    const collection = document.getElementsByClassName("disappear");
+    for (let i = 0; i < collection.length; i++) {
+        collection[i].style.display = 'block';
+    }
+    document.getElementById("circle").style.display = 'none';
+}
+
+async function initiate(time) {
     beatLength = 5.546
     document.getElementById("circle").style.animationDuration = (String(beatLength) + "s");
+
     /*     nOfBeats = timeSeconds/((10+5.546)/2)
         console.log(nOfBeats)
         for (let i = 0; i < (nOfBeats); i++) {
@@ -64,7 +74,7 @@ async function initiate(time) {
         }
     }
 
-    else if(time === 20) {
+    else if (time === 20) {
         var arrReps = [18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 4]
         for (let i = 0; i < arrReps.length; i++) {
             // console.log(beatLength)

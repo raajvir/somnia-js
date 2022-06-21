@@ -14,8 +14,26 @@ $mid: #9d9d9d;
 
 body {
   background-color: $dark;
+  background-image: url('/static/images/stars.svg');
   /* animation: blink 10s ease infinite; */
   font-family: "Social";
+  overflow: hidden !important;
+
+  .menu {
+    position: absolute;
+    bottom: 0;
+    width: auto;
+    overflow: hidden;
+    h3 {
+      color: $mid !important;
+      font-weight: 900;
+      padding: 0 1em;
+    }
+    img {
+      height: 1.5em;
+      padding: 1em 2em;
+    }
+  }
 
   #circle {
     display: none;
@@ -28,6 +46,8 @@ body {
     border-radius: 50%;
     width: 80vh;
     height: 80vh;
+    max-height: 80vw;
+    max-width: 80vw;
 
     background: radial-gradient(50% 50% at 50% 50%, #7ccfff 0%, #00a3ff 100%);
     filter: blur(2em);
@@ -36,12 +56,13 @@ body {
   }
 
   #bg_stars {
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    min-width: 100vw;
     position: absolute;
     top: 0;
     left: 0;
     z-index: -99;
+    overflow: hidden;
   }
 
   #container {
@@ -66,7 +87,7 @@ body {
     }
 
     .buttons {
-      width: 100%;
+      max-width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -162,5 +183,53 @@ body {
     width: 40vh;
     height: 40vh;
     filter: blur(2em) brightness(0.2);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #container {
+    h2 {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 2em !important;
+      //   line-height: 51px;
+      margin: 0.6em;
+      text-align: center;
+      color: $light;
+
+      b {
+        font-weight: "black";
+      }
+    }
+
+    .buttons {
+      max-width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .sq_btn {
+        width: 60px;
+        cursor: pointer;
+        position: relative;
+        z-index: 10;
+        color: $mid;
+        padding: 14px 50px !important;
+        margin: 0 15px !important;
+        font-size: 1em !important;
+        background: $light;
+        border-radius: 16px;
+        --smooth-corners: 6.5;
+        mask-image: paint(smooth-corners);
+        -webkit-mask-image: paint(smooth-corners);
+
+        &:hover {
+            color: $dark;
+            transform: translate(0, -6px);
+            box-shadow: 0px 6px 13px rgba(154, 154, 154, 0.68);
+            // filter: drop-shadow(0px 6px 13px rgba(154, 154, 154, 0.68));
+        }
+      }
+    }
   }
 }

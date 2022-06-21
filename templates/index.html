@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dodow Emulator</title>
+    <link rel="shortcut icon" href="/static/images/somniaFavi.png" type="image/x-icon">
     <link rel="stylesheet" href="/static/stylesheets/index.css">
     <script>
         if (CSS && 'paintWorklet' in CSS) CSS.paintWorklet.addModule('https://unpkg.com/smooth-corners')
@@ -26,7 +27,23 @@
         </div>
     </div>
     <span id="circle"></span>
-    <img src="/static/images/stars.svg" alt="" srcset="" id="bg_stars" class="disappear">
+    <div class="menu">
+        <img src="/static/images/somnialogo gray.svg" alt="" srcset="" style="">
+ <!--        <div class="left"></div>
+        <div class="right">
+            <div class="sq_btn disappear" role="button" onclick="play(0)">
+                restart
+            </div>
+            <div class="sq_btn disappear" role="button" onclick="play(0)">
+                Stop
+            </div>
+        </div> -->
+    </div>
+    <audio tabindex="0" id="music" preload="auto">
+        <source src="/static/audio/hoom_web_sample_white_noise.mp3">
+    </audio>
+    <!-- <img src="/static/images/stars.svg" alt="" srcset="" id="bg_stars" class="disappear"> -->
 </body>
 <script src="/scripts/play.js"></script>
+
 </html>
