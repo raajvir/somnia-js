@@ -1,8 +1,10 @@
-/* import NoSleep from 'scripts/nosleep.js';
-
+/* import NoSleep from 'scripts/nosleep.js'
 var noSleep = new NoSleep(); */
+
+document.getElementById("body").style.backgroundImage = 'url("/static/images/stars.svg")';
 const timer = ms => new Promise(res => setTimeout(res, ms))
 function play(type) {
+    launchFullScreen(document.documentElement);
     // document.getElementsByClassName("disappear").style.display = 'none';
     const collection = document.getElementsByClassName("disappear");
     for (let i = 0; i < collection.length; i++) {
@@ -50,6 +52,7 @@ async function end() {
     document.getElementById("circle").style.display = 'none';
     document.getElementById("outC").style.display = 'none';
     document.getElementById("body").style.backgroundImage = 'url("static/images/stars.svg")';
+    exitFullscreen();
 }
 
 /* async function timekeeper(time) {
@@ -127,4 +130,28 @@ async function halt() {
     document.getElementById("circle").style.display = 'none';
     document.getElementById("outC").style.display = 'none';
     document.getElementById("body").style.backgroundImage = 'url("static/images/stars.svg")';
+    exitFullscreen();
 }
+
+// Find the right method, call on correct element
+function launchFullScreen(element) {
+    if (element.requestFullScreen) {
+        element.requestFullScreen();
+    } else if (element.mozRequestFullScreen) {
+        element.mozRequestFullScreen();
+    } else if (element.webkitRequestFullScreen) {
+        element.webkitRequestFullScreen();
+    }
+}
+function exitFullscreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+    }
+}
+
+// Launch fullscreen for browsers that support it!
+ // the whole page
