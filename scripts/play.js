@@ -35,6 +35,7 @@ async function end() {
     document.getElementById("outC").style.display = 'none';
     document.getElementById("body").style.backgroundImage = 'url("static/images/stars.svg")';
     document.getElementById("menu").style.display = "none";
+    music.pause()
     exitFullscreen();
 }
 
@@ -44,6 +45,9 @@ function timer(ms) {
 // const timer = ms => new Promise(res => setTimeout(res, ms))
 
 async function initiate(time) {
+    var music = document.getElementById('music')
+    music.play()
+
     document.getElementById("instructions").style.display = 'table';
     const currentText = $('#alternating').text();
     console.log(currentText)
@@ -54,7 +58,12 @@ async function initiate(time) {
     });
      await timer(3000)
     $("#alternating").fadeOut("slow", function () {
-        $('#alternating').text('just follow the bubble');
+        $('#alternating').text('when the instructions disappear, set your phone beside you, facing the ceiling');
+        $("#alternating").delay(750).fadeIn("slow");
+    });
+     await timer(6000)
+    $("#alternating").fadeOut("slow", function () {
+        $('#alternating').text('just follow the bubble created on the ceiling');
         $("#alternating").delay(750).fadeIn("slow");
     });
      await timer(3000)
@@ -134,6 +143,7 @@ async function halt() {
     document.getElementById("body").style.backgroundImage = 'url("static/images/stars.svg")';
     document.getElementById("menu").style.display = "none";
     document.getElementById("instructions").style.display = 'none';
+    music.pause()
     exitFullscreen();
 }
 

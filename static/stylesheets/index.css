@@ -47,6 +47,7 @@ body .instructions h1 {
   font-size: 4em;
   text-align: center;
   color: #f5f5f5;
+  max-width: 70%;
 }
 
 body #outC {
