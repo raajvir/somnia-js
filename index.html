@@ -14,7 +14,7 @@
     <script src="/scripts/nosleep.js"></script>
 </head>
 
-<body>
+<body id="body">
     <div id="container" class="disappear">
         <h2>Welcome to <b>Somnia</b></h2>
         <div class="buttons" class="disappear">
@@ -28,20 +28,22 @@
     </div>
     <span id="circle"></span>
     <div class="menu">
-        <img src="/static/images/somnialogo gray.svg" alt="" srcset="" style="">
- <!--        <div class="left"></div>
+        <div class="left">
+            <img src="/static/images/somnialogo gray.svg" alt="" srcset="" id="logoImg">
+        </div>
         <div class="right">
-            <div class="sq_btn disappear" role="button" onclick="play(0)">
-                restart
+            <div class="sqq_btn outline" role="button" onclick="restart()">
+                <img src="/static/images/re.svg" alt="" srcset="">
             </div>
-            <div class="sq_btn disappear" role="button" onclick="play(0)">
-                Stop
+            <div class="sqq_btn" role="button" onclick="halt()">
+                <img src="/static/images/halt.svg" alt="" srcset="">
             </div>
-        </div> -->
+        </div>
     </div>
     <audio tabindex="0" id="music" preload="auto">
         <source src="/static/audio/hoom_web_sample_white_noise.mp3">
     </audio>
+    <img src="/static/images/outicircles.svg" alt="" srcset="" id="outC">
     <!-- <img src="/static/images/stars.svg" alt="" srcset="" id="bg_stars" class="disappear"> -->
 </body>
 <script src="/scripts/play.js"></script>

@@ -1,7 +1,7 @@
 /* import NoSleep from '/scripts/nosleep.js';
 
 var noSleep = new NoSleep(); */
-const timer = ms => new Promise(res => setTimeout(res, ms))
+
 function play(type) {
     // document.getElementsByClassName("disappear").style.display = 'none';
     const collection = document.getElementsByClassName("disappear");
@@ -16,20 +16,19 @@ function play(type) {
     if (type === 0) {
         console.log('8 minute sleep session initiated')
         // enableNoSleep(8*60*1000);
+        timer(8);
         initiate(8);
-        // await timer(8);
         window.timeW = 8;
     }
 
     else if (type === 1) {
         console.log('20 minute sleep session initiated')
-        initiate(20);
         // enableNoSleep(20*60*1000);
-        // await timer(20);
+        // timekeeper(20);
+        initiate(20);
         window.timeW = 20;
     }
-
-    // end()
+    end()
 }
 
 function wait(ms) {
@@ -40,7 +39,7 @@ function wait(ms) {
     }
 }
 
-
+const timer = ms => new Promise(res => setTimeout(res, ms))
 
 async function end() {
     const collection = document.getElementsByClassName("disappear");
@@ -48,10 +47,9 @@ async function end() {
         collection[i].style.display = 'block';
     }
     document.getElementById("circle").style.display = 'none';
-    document.getElementById("outC").style.display = 'none';
-    document.getElementById("body").style.backgroundImage = 'url("/static/images/stars.svg")';
+    document.getElementById("outC").style.display = 'block';
+    document.getElementById("body").style.backgroundImage = "none";
 }
-
 /* async function timekeeper(time) {
     var timeSeconds = 60 * time;
     console.log(timeSeconds)
@@ -64,8 +62,8 @@ async function end() {
     document.getElementById("circle").style.display = 'none';
     document.getElementById("outC").style.display = 'block';
     document.getElementById("body").style.backgroundImage = "none";
-}
- */
+} */
+
 async function initiate(time) {
     beatLength = 5.546
     document.getElementById("circle").style.animationDuration = (String(beatLength) + "s");
@@ -108,8 +106,6 @@ async function initiate(time) {
         }
     }
     // noSleep.disable();
-
-    end()
 }
 
 async function restart() {
