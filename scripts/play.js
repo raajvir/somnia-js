@@ -1,4 +1,4 @@
-/* import NoSleep from '/scripts/nosleep.js';
+/* import NoSleep from 'scripts/nosleep.js';
 
 var noSleep = new NoSleep(); */
 const timer = ms => new Promise(res => setTimeout(res, ms))
@@ -49,7 +49,7 @@ async function end() {
     }
     document.getElementById("circle").style.display = 'none';
     document.getElementById("outC").style.display = 'none';
-    document.getElementById("body").style.backgroundImage = 'url("/static/images/stars.svg")';
+    document.getElementById("body").style.backgroundImage = 'url("static/images/stars.svg")';
 }
 
 /* async function timekeeper(time) {
@@ -126,5 +126,5 @@ async function halt() {
     }
     document.getElementById("circle").style.display = 'none';
     document.getElementById("outC").style.display = 'none';
-    document.getElementById("body").style.backgroundImage = 'url("/static/images/stars.svg")';
+    document.getElementById("body").style.backgroundImage = 'url("static/images/stars.svg")';
 }
