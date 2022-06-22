@@ -1,11 +1,8 @@
-/* import NoSleep from 'scripts/nosleep.js'
-var noSleep = new NoSleep(); */
-
 document.getElementById("body").style.backgroundImage = 'url("/static/images/stars.svg")';
-const timer = ms => new Promise(res => setTimeout(res, ms))
+document.getElementsByClassName("instructions").style.display = 'none';
+
 function play(type) {
     launchFullScreen(document.documentElement);
-    // document.getElementsByClassName("disappear").style.display = 'none';
     const collection = document.getElementsByClassName("disappear");
     for (let i = 0; i < collection.length; i++) {
         collection[i].style.display = 'none';
@@ -13,36 +10,21 @@ function play(type) {
     document.getElementById("circle").style.display = 'block';
     document.getElementById("outC").style.display = 'block';
     document.getElementById("body").style.backgroundImage = "none";
-
+    document.getElementById("menu").style.display = "flex";
+    document.getElementById("instructions").style.display = 'table';
 
     if (type === 0) {
         console.log('8 minute sleep session initiated')
-        // enableNoSleep(8*60*1000);
         initiate(8);
-        // await timer(8);
         window.timeW = 8;
     }
 
     else if (type === 1) {
         console.log('20 minute sleep session initiated')
         initiate(20);
-        // enableNoSleep(20*60*1000);
-        // await timer(20);
         window.timeW = 20;
     }
-
-    // end()
 }
-
-function wait(ms) {
-    var start = new Date().getTime();
-    var end = start;
-    while (end < start + ms) {
-        end = new Date().getTime();
-    }
-}
-
-
 
 async function end() {
     const collection = document.getElementsByClassName("disappear");
@@ -52,46 +34,73 @@ async function end() {
     document.getElementById("circle").style.display = 'none';
     document.getElementById("outC").style.display = 'none';
     document.getElementById("body").style.backgroundImage = 'url("static/images/stars.svg")';
+    document.getElementById("menu").style.display = "none";
     exitFullscreen();
 }
 
-/* async function timekeeper(time) {
-    var timeSeconds = 60 * time;
-    console.log(timeSeconds)
-    await timer(5)
-
-    const collection = document.getElementsByClassName("disappear");
-    for (let i = 0; i < collection.length; i++) {
-        collection[i].style.display = 'block';
-    }
-    document.getElementById("circle").style.display = 'none';
-    document.getElementById("outC").style.display = 'block';
-    document.getElementById("body").style.backgroundImage = "none";
+function timer(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
- */
+// const timer = ms => new Promise(res => setTimeout(res, ms))
+
 async function initiate(time) {
+    document.getElementById("instructions").style.display = 'table';
+    const currentText = $('#alternating').text();
+    console.log(currentText)
+    const deafultText = "hi";
+    $("#alternating").fadeOut("slow", function () {
+        $('#alternating').text('hi');
+        $("#alternating").delay(0).fadeIn("slow");
+    });
+     await timer(3000)
+    $("#alternating").fadeOut("slow", function () {
+        $('#alternating').text('just follow the bubble');
+        $("#alternating").delay(750).fadeIn("slow");
+    });
+     await timer(3000)
+    $("#alternating").fadeOut("slow", function () {
+        $('#alternating').text('inhaling as it expands');
+        $("#alternating").delay(750).fadeIn("slow");
+    });
+    await timer(4000)
+    $("#alternating").fadeOut("slow", function () {
+        $('#alternating').text('and exhaling as it shrinks');
+        $("#alternating").delay(750).fadeIn("slow");
+    });
+    await timer(4000)
+    $("#alternating").fadeOut("slow", function () {
+        $('#alternating').text('3');
+        $("#alternating").delay(750).fadeIn("slow");
+    });
+    await timer(1750)
+    $("#alternating").fadeOut("slow", function () {
+        $('#alternating').text('2');
+        $("#alternating").delay(750).fadeIn("slow");
+    });
+    await timer(1750)
+    $("#alternating").fadeOut("slow", function () {
+        $('#alternating').text('1');
+        $("#alternating").delay(750).fadeIn("slow");
+    });
+    await timer(1750)
+    $("#alternating").fadeOut("slow", function () {
+        $('#alternating').text('');
+        $("#alternating").delay(750).fadeIn("slow");
+    });
+    await timer(500)
+    document.getElementById("instructions").style.display = 'none';
+
     beatLength = 5.546
     document.getElementById("circle").style.animationDuration = (String(beatLength) + "s");
-
-    /*     nOfBeats = timeSeconds/((10+5.546)/2)
-        console.log(nOfBeats)
-        for (let i = 0; i < (nOfBeats); i++) {
-            console.log(i)
-            beatLength = beatLength + (beatLength * 1/nOfBeats)
-            console.log(beatLength)
-        } */
 
     if (time === 8) {
         var arrReps = [11, 9, 9, 8, 7, 6, 5, 5, 4, 4]
         for (let i = 0; i < arrReps.length; i++) {
-            // console.log(beatLength)
             for (let j = 0; j < arrReps[i]; j++) {
                 docVal = (String(beatLength) + "s");
                 document.getElementById("circle").style.animationDuration = docVal;
-                // console.log(docVal);
                 await timer(beatLength * 1000);
             }
-            // beatLength = beatLength + (beatLength * 10 / 100);
             beatLength = beatLength * 1.07;
         }
     }
@@ -99,30 +108,23 @@ async function initiate(time) {
     else if (time === 20) {
         var arrReps = [18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 4]
         for (let i = 0; i < arrReps.length; i++) {
-            // console.log(beatLength)
             for (let j = 0; j < arrReps[i]; j++) {
                 docVal = (String(beatLength) + "s");
                 document.getElementById("circle").style.animationDuration = docVal;
-                // console.log(docVal);
                 await timer(beatLength * 1000);
             }
-            // beatLength = beatLength + (beatLength * 10 / 100);
             beatLength = beatLength * 1.038;
         }
     }
-    // noSleep.disable();
-
     end()
 }
 
 async function restart() {
-    await timer(10)
     console.log(window.timeW);
     initiate(window.timeW);
 }
 
 async function halt() {
-    await timer(10)
     const collection = document.getElementsByClassName("disappear");
     for (let i = 0; i < collection.length; i++) {
         collection[i].style.display = 'block';
@@ -130,10 +132,13 @@ async function halt() {
     document.getElementById("circle").style.display = 'none';
     document.getElementById("outC").style.display = 'none';
     document.getElementById("body").style.backgroundImage = 'url("static/images/stars.svg")';
+    document.getElementById("menu").style.display = "none";
+    document.getElementById("instructions").style.display = 'none';
     exitFullscreen();
 }
 
-// Find the right method, call on correct element
+
+
 function launchFullScreen(element) {
     if (element.requestFullScreen) {
         element.requestFullScreen();
@@ -152,6 +157,3 @@ function exitFullscreen() {
         document.webkitExitFullscreen();
     }
 }
-
-// Launch fullscreen for browsers that support it!
- // the whole page

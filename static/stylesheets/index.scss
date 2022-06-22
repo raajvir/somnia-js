@@ -21,6 +21,36 @@ body {
   padding: 0;
   margin: 0;
 
+  .instructions {
+    z-index: 999;
+    position: absolute;
+    width: 70%;
+    height: 80%;
+    left: 15%;
+    top: 10%;
+    --smooth-corners: 15;
+    mask-image: paint(smooth-corners);
+    -webkit-mask-image: paint(smooth-corners);
+    background: rgba(61, 60, 58, 0.6);
+    backdrop-filter: blur(10px);
+    /* Note: backdrop-filter has minimal browser support */
+
+    border-radius: 16px;
+    text-align: center;
+    display: none;
+
+    h1 {
+      display: table-cell;
+      vertical-align: middle;
+      font-family: "Social";
+      font-style: normal;
+      font-weight: 900;
+      font-size: 4em;
+      text-align: center;
+      color: $light;
+    }
+  }
+
   #outC {
     display: none;
     position: fixed;
@@ -37,7 +67,7 @@ body {
     bottom: 0;
     width: 100%;
     overflow: hidden;
-    display: flex;
+    display: none;
     justify-content: space-between;
 
     .left {
@@ -246,6 +276,17 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
+  .instructions {
+    width: 90% !important;
+    height: 50% !important;
+    left: 5% !important;
+    top: 25% !important;
+
+    h1 {
+      font-size: 2em !important;
+    }
+  }
+
   #container {
     h2 {
       font-style: normal;

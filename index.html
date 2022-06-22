@@ -11,6 +11,10 @@
     <script>
         if (CSS && 'paintWorklet' in CSS) CSS.paintWorklet.addModule('https://unpkg.com/smooth-corners')
     </script>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
     <script src="scripts/nosleep.js"></script>
 </head>
 
@@ -26,8 +30,11 @@
             </div>
         </div>
     </div>
+    <div class="instructions" id="instructions">
+        <h1 id="alternating"></h1>
+    </div>
     <span id="circle"></span>
-    <div class="menu">
+    <div class="menu" id="menu">
         <div class="left">
             <img src="static/images/somnialogogray.svg" alt="" srcset="" id="logoImg">
         </div>
