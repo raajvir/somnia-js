@@ -1,8 +1,8 @@
 let wakeLock = null;
-document.getElementById("body").style.backgroundImage = 'url("/static/images/stars.svg")';
+// document.getElementById("body").style.backgroundImage = 'url("static/images/stars.svg")';
 document.getElementsByClassName("instructions").style.display = 'none';
 
-function play(type) {
+function startAll() {
     launchFullScreen(document.documentElement);
     const collection = document.getElementsByClassName("disappear");
     for (let i = 0; i < collection.length; i++) {
@@ -13,7 +13,25 @@ function play(type) {
     document.getElementById("body").style.backgroundImage = "none";
     document.getElementById("menu").style.display = "flex";
     document.getElementById("instructions").style.display = 'table';
+}
 
+function endAll() {
+    const collection = document.getElementsByClassName("disappear");
+    for (let i = 0; i < collection.length; i++) {
+        collection[i].style.display = 'block';
+    }
+    document.getElementById("circle").style.display = 'none';
+    document.getElementById("outC").style.display = 'none';
+    document.getElementById("body").style.backgroundImage = 'url("static/images/stars.svg")';
+    document.getElementById("menu").style.display = "none";
+    document.getElementById("instructions").style.display = 'none';
+    music.pause();
+    exitFullscreen();
+    wakeLock.release();
+}
+
+function play(type) {
+    startAll();
     if (type === 0) {
         console.log('8 minute sleep session initiated')
         initiate(8);
@@ -46,13 +64,7 @@ function timer(ms) {
 }
 // const timer = ms => new Promise(res => setTimeout(res, ms))
 
-async function initiate(time) {
-    wakelock = navigator.wakeLock.request('screen');
-    
-
-    var music = document.getElementById('music')
-    music.play()
-
+async function instructions() {
     document.getElementById("instructions").style.display = 'table';
     const currentText = $('#alternating').text();
     console.log(currentText)
@@ -61,17 +73,17 @@ async function initiate(time) {
         $('#alternating').text('hi');
         $("#alternating").delay(0).fadeIn("slow");
     });
-     await timer(3000)
+    await timer(3000)
     $("#alternating").fadeOut("slow", function () {
         $('#alternating').text('when the instructions disappear, set your phone beside you, facing the ceiling');
         $("#alternating").delay(750).fadeIn("slow");
     });
-     await timer(6000)
+    await timer(6000)
     $("#alternating").fadeOut("slow", function () {
         $('#alternating').text('just follow the bubble created on the ceiling');
         $("#alternating").delay(750).fadeIn("slow");
     });
-     await timer(3000)
+    await timer(3000)
     $("#alternating").fadeOut("slow", function () {
         $('#alternating').text('inhaling as it expands');
         $("#alternating").delay(750).fadeIn("slow");
@@ -103,6 +115,13 @@ async function initiate(time) {
     });
     await timer(500)
     document.getElementById("instructions").style.display = 'none';
+}
+
+async function initiate(time) {
+    wakelock = navigator.wakeLock.request('screen');
+    var music = document.getElementById('music')
+    music.play()
+    instructions()
 
     beatLength = 5.546
     document.getElementById("circle").style.animationDuration = (String(beatLength) + "s");
@@ -130,30 +149,13 @@ async function initiate(time) {
             beatLength = beatLength * 1.038;
         }
     }
-    end()
+    endAll()
 }
 
 async function restart() {
     console.log(window.timeW);
     initiate(window.timeW);
 }
-
-async function halt() {
-    const collection = document.getElementsByClassName("disappear");
-    for (let i = 0; i < collection.length; i++) {
-        collection[i].style.display = 'block';
-    }
-    document.getElementById("circle").style.display = 'none';
-    document.getElementById("outC").style.display = 'none';
-    document.getElementById("body").style.backgroundImage = 'url("static/images/stars.svg")';
-    document.getElementById("menu").style.display = "none";
-    document.getElementById("instructions").style.display = 'none';
-    music.pause()
-    exitFullscreen();
-    wakeLock.release();
-}
-
-
 
 function launchFullScreen(element) {
     if (element.requestFullScreen) {
