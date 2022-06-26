@@ -1,6 +1,4 @@
-const NoSleep = require('https://cdn.jsdelivr.net/gh/richtr/NoSleep.js/dist/NoSleep.min.js');
-var noSleep = new NoSleep();
-console.log('gone')
+let wakeLock = null;
 document.getElementById("body").style.backgroundImage = 'url("/static/images/stars.svg")';
 document.getElementsByClassName("instructions").style.display = 'none';
 
@@ -39,8 +37,8 @@ async function end() {
     document.getElementById("body").style.backgroundImage = 'url("static/images/stars.svg")';
     document.getElementById("menu").style.display = "none";
     music.pause();
-    noSleep.disable();
     exitFullscreen();
+    wakeLock.release();
 }
 
 function timer(ms) {
@@ -49,7 +47,9 @@ function timer(ms) {
 // const timer = ms => new Promise(res => setTimeout(res, ms))
 
 async function initiate(time) {
-    noSleep.enable();
+    wakelock = navigator.wakeLock.request('screen');
+    
+
     var music = document.getElementById('music')
     music.play()
 
@@ -149,8 +149,8 @@ async function halt() {
     document.getElementById("menu").style.display = "none";
     document.getElementById("instructions").style.display = 'none';
     music.pause()
-    noSleep.disable();
     exitFullscreen();
+    wakeLock.release();
 }
 
 
