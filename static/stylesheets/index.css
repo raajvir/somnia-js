@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Social";
-  src: url("/static/fonts/ABCSocialVariable-Trial.woff") format("woff");
+  src: url("static/fonts/ABCSocialVariable-Trial.woff") format("woff");
 }
 
 * {
@@ -11,7 +11,7 @@
 
 body {
   background-color: black;
-  background-image: url("/static/images/stars.svg");
+  background-image: url("static/images/stars.svg");
   /* animation: blink 10s ease infinite; */
   font-family: "Social";
   overflow: hidden !important;
@@ -291,20 +291,14 @@ body #container .buttons .sq_btn:hover {
 
 @-webkit-keyframes grow {
   0% {
-    width: 20vh;
-    height: 20vh;
     -webkit-filter: blur(5px) brightness(0.1);
             filter: blur(5px) brightness(0.1);
   }
   40% {
-    width: 80vh;
-    height: 80vh;
     -webkit-filter: blur(5px) brightness(1);
             filter: blur(5px) brightness(1);
   }
   100% {
-    width: 20vh;
-    height: 20vh;
     -webkit-filter: blur(5px) brightness(0.1);
             filter: blur(5px) brightness(0.1);
   }
@@ -312,20 +306,14 @@ body #container .buttons .sq_btn:hover {
 
 @keyframes grow {
   0% {
-    width: 20vh;
-    height: 20vh;
     -webkit-filter: blur(5px) brightness(0.1);
             filter: blur(5px) brightness(0.1);
   }
   40% {
-    width: 80vh;
-    height: 80vh;
     -webkit-filter: blur(5px) brightness(1);
             filter: blur(5px) brightness(1);
   }
   100% {
-    width: 20vh;
-    height: 20vh;
     -webkit-filter: blur(5px) brightness(0.1);
             filter: blur(5px) brightness(0.1);
   }
