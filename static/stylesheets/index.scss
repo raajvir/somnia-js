@@ -13,8 +13,8 @@ $mid: #9d9d9d;
 }
 
 body {
-  background-color: $dark;
-  background-image: url("static/images/stars.svg") !important;
+  background-color: black;
+  background-image: url("/static/images/stars.svg");
   /* animation: blink 10s ease infinite; */
   font-family: "Social";
   overflow: hidden !important;
@@ -57,7 +57,7 @@ body {
     position: fixed;
     z-index: -99;
     left: 50%;
-    opacity: 0.5;
+    opacity: 0.2;
     top: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -258,9 +258,9 @@ body {
 
 @keyframes grow {
   0% {
-    width: 30vh;
-    height: 30vh;
-    filter: blur(2em) brightness(0.2);
+    width: 20vh;
+    height: 20vh;
+    filter: blur(2em) brightness(0.1);
   }
 
   40% {
@@ -270,9 +270,9 @@ body {
   }
 
   100% {
-    width: 30vh;
-    height: 30vh;
-    filter: blur(2em) brightness(0.2);
+    width: 20vh;
+    height: 20vh;
+    filter: blur(2em) brightness(0.1);
   }
 }
 

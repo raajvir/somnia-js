@@ -1,4 +1,4 @@
-import NoSleep from '/scripts/nosleep.min';
+import NoSleep from '/scripts/nosleep.js';
 
 var noSleep = new NoSleep();
 

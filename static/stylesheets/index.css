@@ -10,8 +10,8 @@
 }
 
 body {
-  background-color: #252524;
-  background-image: url("static/images/stars.svg") !important;
+  background-color: black;
+  background-image: url("/static/images/stars.svg");
   /* animation: blink 10s ease infinite; */
   font-family: "Social";
   overflow: hidden !important;
@@ -55,7 +55,7 @@ body #outC {
   position: fixed;
   z-index: -99;
   left: 50%;
-  opacity: 0.5;
+  opacity: 0.2;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -288,10 +288,10 @@ body #container .buttons .sq_btn:hover {
 
 @-webkit-keyframes grow {
   0% {
-    width: 30vh;
-    height: 30vh;
-    -webkit-filter: blur(2em) brightness(0.2);
-            filter: blur(2em) brightness(0.2);
+    width: 20vh;
+    height: 20vh;
+    -webkit-filter: blur(2em) brightness(0.1);
+            filter: blur(2em) brightness(0.1);
   }
   40% {
     width: 80vh;
@@ -300,19 +300,19 @@ body #container .buttons .sq_btn:hover {
             filter: blur(2em) brightness(1);
   }
   100% {
-    width: 30vh;
-    height: 30vh;
-    -webkit-filter: blur(2em) brightness(0.2);
-            filter: blur(2em) brightness(0.2);
+    width: 20vh;
+    height: 20vh;
+    -webkit-filter: blur(2em) brightness(0.1);
+            filter: blur(2em) brightness(0.1);
   }
 }
 
 @keyframes grow {
   0% {
-    width: 30vh;
-    height: 30vh;
-    -webkit-filter: blur(2em) brightness(0.2);
-            filter: blur(2em) brightness(0.2);
+    width: 20vh;
+    height: 20vh;
+    -webkit-filter: blur(2em) brightness(0.1);
+            filter: blur(2em) brightness(0.1);
   }
   40% {
     width: 80vh;
@@ -321,10 +321,10 @@ body #container .buttons .sq_btn:hover {
             filter: blur(2em) brightness(1);
   }
   100% {
-    width: 30vh;
-    height: 30vh;
-    -webkit-filter: blur(2em) brightness(0.2);
-            filter: blur(2em) brightness(0.2);
+    width: 20vh;
+    height: 20vh;
+    -webkit-filter: blur(2em) brightness(0.1);
+            filter: blur(2em) brightness(0.1);
   }
 }
 
