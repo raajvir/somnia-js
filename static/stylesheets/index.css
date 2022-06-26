@@ -97,7 +97,7 @@ body .menu .right .sqq_btn {
   padding: 14px;
   margin: 10px 0;
   font-size: 1.2em;
-  background: #f5f5f5;
+  background: #9d9d9d;
   border-radius: 16px;
   --smooth-corners: 6.5;
   mask-image: paint(smooth-corners);
@@ -124,7 +124,12 @@ body .menu .right .sqq_btn img {
 
 body .menu .right .outline {
   background: none;
-  border: 1px solid #f5f5f5;
+  border: 1px solid #9d9d9d;
+}
+
+body .menu .right .outline img {
+  -webkit-filter: brightness(0.7);
+          filter: brightness(0.7);
 }
 
 body #circle {
@@ -288,8 +293,8 @@ body #container .buttons .sq_btn:hover {
   0% {
     width: 20vh;
     height: 20vh;
-    -webkit-filter: blur(5px) brightness(0.01);
-            filter: blur(5px) brightness(0.01);
+    -webkit-filter: blur(5px) brightness(0.1);
+            filter: blur(5px) brightness(0.1);
   }
   40% {
     width: 80vh;
@@ -300,8 +305,8 @@ body #container .buttons .sq_btn:hover {
   100% {
     width: 20vh;
     height: 20vh;
-    -webkit-filter: blur(5px) brightness(0.01);
-            filter: blur(5px) brightness(0.01);
+    -webkit-filter: blur(5px) brightness(0.1);
+            filter: blur(5px) brightness(0.1);
   }
 }
 
@@ -309,8 +314,8 @@ body #container .buttons .sq_btn:hover {
   0% {
     width: 20vh;
     height: 20vh;
-    -webkit-filter: blur(5px) brightness(0.01);
-            filter: blur(5px) brightness(0.01);
+    -webkit-filter: blur(5px) brightness(0.1);
+            filter: blur(5px) brightness(0.1);
   }
   40% {
     width: 80vh;
@@ -321,8 +326,8 @@ body #container .buttons .sq_btn:hover {
   100% {
     width: 20vh;
     height: 20vh;
-    -webkit-filter: blur(5px) brightness(0.01);
-            filter: blur(5px) brightness(0.01);
+    -webkit-filter: blur(5px) brightness(0.1);
+            filter: blur(5px) brightness(0.1);
   }
 }
 

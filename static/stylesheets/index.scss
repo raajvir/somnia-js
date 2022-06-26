@@ -94,7 +94,7 @@ body {
         padding: 14px;
         margin: 10px 0;
         font-size: 1.2em;
-        background: $light;
+        background: $mid;
         border-radius: 16px;
         --smooth-corners: 6.5;
         mask-image: paint(smooth-corners);
@@ -120,7 +120,10 @@ body {
 
       .outline {
         background: none;
-        border: 1px solid $light;
+        border: 1px solid $mid;
+        img {
+          filter: brightness(0.7);
+        }
       }
     }
   }
@@ -260,7 +263,7 @@ body {
   0% {
     width: 20vh;
     height: 20vh;
-    filter: blur(5px) brightness(0.01);
+    filter: blur(5px) brightness(0.1);
   }
 
   40% {
@@ -272,7 +275,7 @@ body {
   100% {
     width: 20vh;
     height: 20vh;
-    filter: blur(5px) brightness(0.01);
+    filter: blur(5px) brightness(0.1);
   }
 }
 

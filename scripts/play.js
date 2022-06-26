@@ -1,6 +1,6 @@
 let wakeLock = null;
 document.getElementById("body").style.backgroundImage = 'url("static/images/stars.svg")';
-document.getElementsByClassName("instructions").style.display = 'none';
+// document.getElementsByClassName("instructions").style.display = 'none';
 
 function startAll() {
     launchFullScreen(document.documentElement);
@@ -11,6 +11,7 @@ function startAll() {
     document.getElementById("circle").style.display = 'block';
     document.getElementById("outC").style.display = 'block';
     document.getElementById("body").style.backgroundImage = "none";
+    document.getElementById("body").style.backgroundColor = "black";
     document.getElementById("menu").style.display = "flex";
     document.getElementById("instructions").style.display = 'table';
 }
@@ -23,6 +24,7 @@ function endAll() {
     document.getElementById("circle").style.display = 'none';
     document.getElementById("outC").style.display = 'none';
     document.getElementById("body").style.backgroundImage = 'url("static/images/stars.svg")';
+    document.getElementById("body").style.backgroundColor = "black";
     document.getElementById("menu").style.display = "none";
     document.getElementById("instructions").style.display = 'none';
     music.pause();
@@ -56,7 +58,12 @@ async function end() {
     document.getElementById("menu").style.display = "none";
     music.pause();
     exitFullscreen();
-    wakeLock.release();
+    try {
+        wakeLock.release();
+    }
+    catch(err) {
+        console.log('error, no wakelock in this damn piece of antique junk')
+    }
 }
 
 function timer(ms) {
@@ -118,7 +125,9 @@ async function instructions() {
 }
 
 async function initiate(time) {
-    wakelock = navigator.wakeLock.request('screen');
+    if (wakeLock in navigator) {
+        wakelock = navigator.wakeLock.request('screen');
+    }
     var music = document.getElementById('music')
     music.play()
     instructions()
