@@ -1,5 +1,5 @@
 let wakeLock = null;
-// document.getElementById("body").style.backgroundImage = 'url("static/images/stars.svg")';
+document.getElementById("body").style.backgroundImage = 'url("static/images/stars.svg")';
 document.getElementsByClassName("instructions").style.display = 'none';
 
 function startAll() {
