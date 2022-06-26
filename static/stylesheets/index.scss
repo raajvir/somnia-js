@@ -140,7 +140,7 @@ body {
     max-width: 80vw;
 
     background: radial-gradient(50% 50% at 50% 50%, #7ccfff 0%, #00a3ff 100%);
-    filter: blur(2em);
+    // filter: blur(2em);
 
     animation: grow 5.45s ease infinite;
   }
@@ -260,19 +260,19 @@ body {
   0% {
     width: 20vh;
     height: 20vh;
-    filter: blur(2em) brightness(0.1);
+    filter: blur(5px) brightness(0.01);
   }
 
   40% {
     width: 80vh;
     height: 80vh;
-    filter: blur(2em) brightness(1);
+    filter: blur(5px) brightness(1);
   }
 
   100% {
     width: 20vh;
     height: 20vh;
-    filter: blur(2em) brightness(0.1);
+    filter: blur(5px) brightness(0.01);
   }
 }
 
