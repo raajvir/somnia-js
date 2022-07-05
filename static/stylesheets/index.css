@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Social";
-  src: url("static/fonts/ABCSocialVariable-Trial.woff") format("woff");
+  src: url("/static/fonts/ABCSocialVariable-Trial.woff") format("woff");
 }
 
 * {
@@ -291,31 +291,35 @@ body #container .buttons .sq_btn:hover {
 
 @-webkit-keyframes grow {
   0% {
-    -webkit-filter: blur(5px) brightness(0.1);
-            filter: blur(5px) brightness(0.1);
+    -webkit-filter: blur(0em) brightness(0);
+            filter: blur(0em) brightness(0);
   }
   40% {
-    -webkit-filter: blur(5px) brightness(1);
-            filter: blur(5px) brightness(1);
+    width: 80vh;
+    height: 80vh;
+    -webkit-filter: blur(0em) brightness(1);
+            filter: blur(0em) brightness(1);
   }
   100% {
-    -webkit-filter: blur(5px) brightness(0.1);
-            filter: blur(5px) brightness(0.1);
+    -webkit-filter: blur(0em) brightness(0);
+            filter: blur(0em) brightness(0);
   }
 }
 
 @keyframes grow {
   0% {
-    -webkit-filter: blur(5px) brightness(0.1);
-            filter: blur(5px) brightness(0.1);
+    -webkit-filter: blur(0em) brightness(0);
+            filter: blur(0em) brightness(0);
   }
   40% {
-    -webkit-filter: blur(5px) brightness(1);
-            filter: blur(5px) brightness(1);
+    width: 80vh;
+    height: 80vh;
+    -webkit-filter: blur(0em) brightness(1);
+            filter: blur(0em) brightness(1);
   }
   100% {
-    -webkit-filter: blur(5px) brightness(0.1);
-            filter: blur(5px) brightness(0.1);
+    -webkit-filter: blur(0em) brightness(0);
+            filter: blur(0em) brightness(0);
   }
 }
 

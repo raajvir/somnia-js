@@ -61,7 +61,7 @@ async function end() {
     try {
         wakeLock.release();
     }
-    catch(err) {
+    catch (err) {
         console.log('error, no wakelock in this damn piece of antique junk')
     }
 }
@@ -128,9 +128,16 @@ async function initiate(time) {
     if (wakeLock in navigator) {
         wakelock = navigator.wakeLock.request('screen');
     }
-    var music = document.getElementById('music')
-    music.play()
+    var music = document.getElementById('music');
     instructions()
+
+    // Initial volume of 0.20
+    // Make sure it's a multiple of 0.05
+    var vol = 0.20;
+    music.volume = vol;
+    music.play()
+    var interval = 200; // 200ms interval
+
 
     beatLength = 5.546
     document.getElementById("circle").style.animationDuration = (String(beatLength) + "s");
@@ -142,6 +149,34 @@ async function initiate(time) {
                 docVal = (String(beatLength) + "s");
                 document.getElementById("circle").style.animationDuration = docVal;
                 await timer(beatLength * 1000);
+                /* var fadeout = setInterval(
+                    function () {
+                        // Reduce volume by 0.05 as long as it is above 0
+                        // This works as long as you start with a multiple of 0.05!
+                        if (vol < 0) {
+                            vol += 0.05;
+                            music.volume = vol;
+                            console.log('increase')
+                        }
+                        else {
+                            // Stop the setInterval when 0 is reached
+                            clearInterval(fadeout);
+                        }
+                    }, (beatLength * 0.4));
+                var fadeout = setInterval(
+                    function () {
+                        // Reduce volume by 0.05 as long as it is above 0
+                        // This works as long as you start with a multiple of 0.05!
+                        if (vol > 0.05) {
+                            vol -= 0.05;
+                            music.volume = vol;
+                            console.log('decrease')
+                        }
+                        else {
+                            // Stop the setInterval when 0 is reached
+                            clearInterval(fadeout);
+                        }
+                    }, (beatLength * 0.6)); */
             }
             beatLength = beatLength * 1.07;
         }
