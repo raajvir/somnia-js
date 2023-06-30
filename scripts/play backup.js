@@ -124,42 +124,6 @@ async function instructions() {
     document.getElementById("instructions").style.display = 'none';
 }
 
-
-function jijou(x, y, z) {
-    let outList = [x, y];
-
-    function generate_values(a, b, z) {
-        if (z < 2) {
-            throw new Error("z must be greater than or equal to 2.");
-        }
-
-        if (b <= a) {
-            throw new Error("b must be greater than a.");
-        }
-
-        const step = (b - a) / (z - 1);  // Uniform step size
-
-        const values = [];
-        let current_value = a;
-
-        for (let i = 0; i < z; i++) {
-            values.push(current_value);
-            current_value += step;
-        }
-
-        return values;
-    }
-    let i = 1;
-    while (outList.reduce((a, b) => a + b, 0) < z) {
-        i++;
-        // console.log(outList);
-        outList = generate_values(x, y, i);
-    }
-
-    return outList;
-}
-
-
 async function initiate(time) {
     if (wakeLock in navigator) {
         wakelock = navigator.wakeLock.request('screen');
@@ -172,48 +136,63 @@ async function initiate(time) {
     var vol = 0.20;
     music.volume = vol;
     music.play()
-
-    const initialDur = 6
-    const finalDur = 10
-
-    // beatLength = 5.546
-    document.getElementById("circle").style.animationDuration = (String(initialDur) + "s");
-
-    let z = time * 60;
-    console.log(z)
-    const lulu = jijou(initialDur, finalDur, z);
+    var interval = 200; // 200ms interval
 
 
-    for (let i = 0; i < lulu.length; i++) {
-        console.log(lulu[i])
-        let docVal = (String(lulu[i]) + "s");
-        document.getElementById("circle").style.animationDuration = docVal;
-        await timer((lulu[i]) * 1000);
+    beatLength = 5.546
+    document.getElementById("circle").style.animationDuration = (String(beatLength) + "s");
+
+    if (time === 8) {
+        var arrReps = [11, 9, 9, 8, 7, 6, 5, 5, 4, 4]
+        for (let i = 0; i < arrReps.length; i++) {
+            for (let j = 0; j < arrReps[i]; j++) {
+                docVal = (String(beatLength) + "s");
+                document.getElementById("circle").style.animationDuration = docVal;
+                await timer(beatLength * 1000);
+                /* var fadeout = setInterval(
+                    function () {
+                        // Reduce volume by 0.05 as long as it is above 0
+                        // This works as long as you start with a multiple of 0.05!
+                        if (vol < 0) {
+                            vol += 0.05;
+                            music.volume = vol;
+                            console.log('increase')
+                        }
+                        else {
+                            // Stop the setInterval when 0 is reached
+                            clearInterval(fadeout);
+                        }
+                    }, (beatLength * 0.4));
+                var fadeout = setInterval(
+                    function () {
+                        // Reduce volume by 0.05 as long as it is above 0
+                        // This works as long as you start with a multiple of 0.05!
+                        if (vol > 0.05) {
+                            vol -= 0.05;
+                            music.volume = vol;
+                            console.log('decrease')
+                        }
+                        else {
+                            // Stop the setInterval when 0 is reached
+                            clearInterval(fadeout);
+                        }
+                    }, (beatLength * 0.6)); */
+            }
+            beatLength = beatLength * 1.07;
+        }
     }
 
-    /*     if (time === 8) {
-            var arrReps = [11, 9, 9, 8, 7, 6, 5, 5, 4, 4]
-            for (let i = 0; i < arrReps.length; i++) {
-                for (let j = 0; j < arrReps[i]; j++) {
-                    docVal = (String(beatLength) + "s");
-                    document.getElementById("circle").style.animationDuration = docVal;
-                    await timer(beatLength * 1000);
-                }
-                beatLength = beatLength * 1.07;
+    else if (time === 20) {
+        var arrReps = [18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 4]
+        for (let i = 0; i < arrReps.length; i++) {
+            for (let j = 0; j < arrReps[i]; j++) {
+                docVal = (String(beatLength) + "s");
+                document.getElementById("circle").style.animationDuration = docVal;
+                await timer(beatLength * 1000);
             }
+            beatLength = beatLength * 1.038;
         }
-    
-        else if (time === 20) {
-            var arrReps = [18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 4]
-            for (let i = 0; i < arrReps.length; i++) {
-                for (let j = 0; j < arrReps[i]; j++) {
-                    docVal = (String(beatLength) + "s");
-                    document.getElementById("circle").style.animationDuration = docVal;
-                    await timer(beatLength * 1000);
-                }
-                beatLength = beatLength * 1.038;
-            }
-        } */
+    }
     endAll()
 }
 
