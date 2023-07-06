@@ -14,6 +14,8 @@ function startAll() {
     document.getElementById("body").style.backgroundColor = "black";
     document.getElementById("menu").style.display = "flex";
     document.getElementById("instructions").style.display = 'table';
+
+    wakeLock = await navigator.wakeLock.request("screen");
 }
 
 function endAll() {
@@ -29,7 +31,7 @@ function endAll() {
     document.getElementById("instructions").style.display = 'none';
     music.pause();
     exitFullscreen();
-    // wakeLock.release();
+    wakeLock.release()
 }
 
 function play(type) {
@@ -185,7 +187,7 @@ async function initiate(time) {
 
     let i = 0;
     function runAnimation() {
-        console.log('dd',i, lulu[i])
+        console.log('dd', i, lulu[i])
         if (i < lulu.length) {
             circle.style.animation = 'none';  // Reset the animation
             circle.style.background = 'rgba(0, 0, 0, 0)';
@@ -203,7 +205,7 @@ async function initiate(time) {
     }
 
     circle.addEventListener('animationend', runAnimation);
-    runAnimation(); 
+    runAnimation();
     /*     if (time === 8) {
             var arrReps = [11, 9, 9, 8, 7, 6, 5, 5, 4, 4]
             for (let i = 0; i < arrReps.length; i++) {
