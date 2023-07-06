@@ -29,7 +29,7 @@ function endAll() {
     document.getElementById("instructions").style.display = 'none';
     music.pause();
     exitFullscreen();
-    wakeLock.release();
+    // wakeLock.release();
 }
 
 function play(type) {
@@ -172,25 +172,38 @@ async function initiate(time) {
     var vol = 0.20;
     music.volume = vol;
     music.play()
-
+    var circle = document.getElementById("circle")
     const initialDur = 6
     const finalDur = 10
 
     // beatLength = 5.546
-    document.getElementById("circle").style.animationDuration = (String(initialDur) + "s");
+    circle.style.animationDuration = (String(initialDur) + "s");
 
     let z = time * 60;
     console.log(z)
     const lulu = jijou(initialDur, finalDur, z);
 
-
-    for (let i = 0; i < lulu.length; i++) {
-        console.log(lulu[i])
-        let docVal = (String(lulu[i]) + "s");
-        document.getElementById("circle").style.animationDuration = docVal;
-        await timer((lulu[i]) * 1000);
+    let i = 0;
+    function runAnimation() {
+        console.log('dd',i, lulu[i])
+        if (i < lulu.length) {
+            circle.style.animation = 'none';  // Reset the animation
+            circle.style.background = 'rgba(0, 0, 0, 0)';
+            setTimeout(() => {
+                circle.style.animation = `grow ${lulu[i]}s ease 1`;
+                circle.style.background = 'radial-gradient(50% 50% at 50% 50%, #fffca0 0%, #ffd426 100%)';
+                i++;
+            }, 0);
+            circle.style.animation = 'none';  // Reset the animation
+            circle.style.background = 'rgba(0, 0, 0, 0)';
+        } else {
+            circle.removeEventListener('animationend', runAnimation);
+            endAll()
+        }
     }
 
+    circle.addEventListener('animationend', runAnimation);
+    runAnimation(); 
     /*     if (time === 8) {
             var arrReps = [11, 9, 9, 8, 7, 6, 5, 5, 4, 4]
             for (let i = 0; i < arrReps.length; i++) {
@@ -214,7 +227,6 @@ async function initiate(time) {
                 beatLength = beatLength * 1.038;
             }
         } */
-    endAll()
 }
 
 async function restart() {

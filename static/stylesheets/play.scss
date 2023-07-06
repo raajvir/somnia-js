@@ -29,10 +29,9 @@ body {
     width: 80vh;
     height: 80vh;
 
-    background: radial-gradient(50% 50% at 50% 50%, #7ccfff 0%, #00a3ff 100%);
-    filter: blur(2em);
-
-    animation: grow 5.45s ease infinite;
+    background: rgba(0,0,0,0);
+    // filter: brightness(0);
+    // animation: grow 5.45s ease infinite;
   }
 
   /* #bg_stars {
@@ -58,6 +57,8 @@ body {
   width: 200px;
 }
 
+@keyframes idle { 100% {filter: brightness(0);} }
+
 @keyframes blink {
   0% {
     background-color: #252524;
@@ -74,18 +75,21 @@ body {
   0% {
     width: 40vh;
     height: 40vh;
-    filter: blur(2em) brightness(0.2);
+    filter: brightness(0);
+    background: radial-gradient(50% 50% at 50% 50%, #7ccfff 0%, #00a3ff 100%);
   }
 
   40% {
     width: 80vh;
     height: 80vh;
-    filter: blur(2em) brightness(1);
+    filter: brightness(1);
+    background: radial-gradient(50% 50% at 50% 50%, #7ccfff 0%, #00a3ff 100%);
   }
 
   100% {
     width: 40vh;
     height: 40vh;
-    filter: blur(2em) brightness(0.2);
+    filter: brightness(0);
+    background: radial-gradient(50% 50% at 50% 50%, #7ccfff 0%, #00a3ff 100%);
   }
 }

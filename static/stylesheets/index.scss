@@ -77,6 +77,7 @@ body {
         height: 1.5em;
         padding: 1em 2em;
         margin-bottom: 10px;
+        filter: opacity(0.5);
       }
     }
 
@@ -91,6 +92,7 @@ body {
         width: 14px;
         z-index: 10;
         color: $mid;
+        filter: opacity(0.5);
         padding: 14px;
         margin: 10px 0;
         font-size: 1.2em;
@@ -142,10 +144,10 @@ body {
     max-height: 80vw;
     max-width: 80vw;
 
-    background: radial-gradient(50% 50% at 50% 50%, #7ccfff 0%, #00a3ff 100%);
+    background: radial-gradient(50% 50% at 50% 50%, #fffca0 0%, #ffd426 100%);
     // filter: blur(2em);
 
-    animation: grow 5.45s ease infinite;
+    // animation: grow 5.45s ease infinite;
   }
 
   #bg_stars {
@@ -261,7 +263,7 @@ body {
 
 @keyframes grow {
   0% {
-    filter: blur(0em) brightness(0);
+    filter: blur(0em) brightness(0.01);
   }
 
   40% {
@@ -271,7 +273,7 @@ body {
   }
 
   100% {
-    filter: blur(0em) brightness(0);
+    filter: blur(0em) brightness(0.01);
   }
 }
 
