@@ -2,7 +2,7 @@ let wakeLock = null;
 document.getElementById("body").style.backgroundImage = 'url("static/images/stars.svg")';
 // document.getElementsByClassName("instructions").style.display = 'none';
 
-function startAll() {
+async function startAll() {
     launchFullScreen(document.documentElement);
     const collection = document.getElementsByClassName("disappear");
     for (let i = 0; i < collection.length; i++) {
