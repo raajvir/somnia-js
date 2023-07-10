@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css">
+
+    <style>
+        .fp-watermark {
+            display: none;
+        }
+        #fullpage .section {
+            text-align: center;
+            font-size: 3em;
+            padding: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div id="fullpage">
+        <div class="section">Chapter 1: The Boy Who Lived</div>
+        <div class="section">Chapter 2: The Vanishing Glass</div>
+        <div class="section">Chapter 3: The Letters from No One</div>
+        <!-- Continue with additional sections for each chapter -->
+    </div>
+
+    <script src="https://unpkg.com/fullpage.js/dist/fullpage.min.js"></script>
+    <script>
+        new fullpage('#fullpage', {
+            autoScrolling: true,
+            scrollHorizontally: true
+        });
+    </script>
+</body>
+</html>

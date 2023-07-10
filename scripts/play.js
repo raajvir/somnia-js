@@ -1,5 +1,5 @@
 let wakeLock = null;
-document.getElementById("body").style.backgroundImage = 'url("static/images/stars.svg")';
+// document.getElementById("body").style.backgroundImage = 'url("static/images/stars.svg")';
 // document.getElementsByClassName("instructions").style.display = 'none';
 
 async function startAll() {
@@ -161,19 +161,25 @@ function jijou(x, y, z) {
     return outList;
 }
 
+function getMusicSpeed(duration, w_duration) {
+    return duration / w_duration;
+}
 
 async function initiate(time) {
     if (wakeLock in navigator) {
         wakelock = navigator.wakeLock.request('screen');
     }
-    var music = document.getElementById('music');
     instructions()
 
     // Initial volume of 0.20
     // Make sure it's a multiple of 0.05
-    var vol = 0.20;
+    var music = document.getElementById('music');
+    var audio_dur = music.duration;
+    var vol = 0.9;
     music.volume = vol;
-    music.play()
+    
+
+
     var circle = document.getElementById("circle")
     const initialDur = 6
     const finalDur = 10
@@ -182,22 +188,29 @@ async function initiate(time) {
     circle.style.animationDuration = (String(initialDur) + "s");
 
     let z = time * 60;
-    console.log(z)
+    // console.log(z)
     const lulu = jijou(initialDur, finalDur, z);
 
     let i = 0;
     function runAnimation() {
-        console.log('dd', i, lulu[i])
         if (i < lulu.length) {
+            music.play()
+            musicSpeed = getMusicSpeed(audio_dur, lulu[i])
+            music.playbackRate = musicSpeed;
+            music.currentTime = 0
+
             circle.style.animation = 'none';  // Reset the animation
-            circle.style.background = 'rgba(0, 0, 0, 0)';
+            circle.style.filter = 'brightness(0.1)';
             setTimeout(() => {
                 circle.style.animation = `grow ${lulu[i]}s ease 1`;
                 circle.style.background = 'radial-gradient(50% 50% at 50% 50%, #fffca0 0%, #ffd426 100%)';
                 i++;
             }, 0);
             circle.style.animation = 'none';  // Reset the animation
-            circle.style.background = 'rgba(0, 0, 0, 0)';
+            circle.style.filter = 'brightness(0.1)';
+            // music.pause()
+            console.log(i, lulu[i], (musicSpeed * audio_dur))
+            // music.pause()
         } else {
             circle.removeEventListener('animationend', runAnimation);
             endAll()

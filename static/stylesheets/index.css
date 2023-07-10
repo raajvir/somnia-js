@@ -11,7 +11,7 @@
 
 body {
   background-color: black;
-  background-image: url("static/images/stars.svg");
+  background-image: url("/static/images/stars.svg");
   /* animation: blink 10s ease infinite; */
   font-family: "Social";
   overflow: hidden !important;
@@ -144,11 +144,27 @@ body #circle {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  width: 80vh;
-  height: 80vh;
+  width: 90vh;
+  height: 90vh;
+  max-height: 90vw;
+  max-width: 90vw;
+  background: radial-gradient(50% 50% at 50% 50%, #fffca0 0%, #ffd426 100%);
+}
+
+body #circle .inner-circle {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  width: 80vw;
+  height: 80vw;
   max-height: 80vw;
   max-width: 80vw;
-  background: radial-gradient(50% 50% at 50% 50%, #fffca0 0%, #ffd426 100%);
+  z-index: 99;
+  background: white;
 }
 
 body #bg_stars {
@@ -293,35 +309,35 @@ body #container .buttons .sq_btn:hover {
 
 @-webkit-keyframes grow {
   0% {
-    -webkit-filter: blur(0em) brightness(0.01);
-            filter: blur(0em) brightness(0.01);
+    -webkit-filter: blur(0.5em) brightness(0.1);
+            filter: blur(0.5em) brightness(0.1);
   }
   40% {
     width: 80vh;
     height: 80vh;
-    -webkit-filter: blur(0em) brightness(1);
-            filter: blur(0em) brightness(1);
+    -webkit-filter: blur(0.5em) brightness(1);
+            filter: blur(0.5em) brightness(1);
   }
   100% {
-    -webkit-filter: blur(0em) brightness(0.01);
-            filter: blur(0em) brightness(0.01);
+    -webkit-filter: blur(0.5em) brightness(0.1);
+            filter: blur(0.5em) brightness(0.1);
   }
 }
 
 @keyframes grow {
   0% {
-    -webkit-filter: blur(0em) brightness(0.01);
-            filter: blur(0em) brightness(0.01);
+    -webkit-filter: blur(0.5em) brightness(0.1);
+            filter: blur(0.5em) brightness(0.1);
   }
   40% {
     width: 80vh;
     height: 80vh;
-    -webkit-filter: blur(0em) brightness(1);
-            filter: blur(0em) brightness(1);
+    -webkit-filter: blur(0.5em) brightness(1);
+            filter: blur(0.5em) brightness(1);
   }
   100% {
-    -webkit-filter: blur(0em) brightness(0.01);
-            filter: blur(0em) brightness(0.01);
+    -webkit-filter: blur(0.5em) brightness(0.1);
+            filter: blur(0.5em) brightness(0.1);
   }
 }
 
