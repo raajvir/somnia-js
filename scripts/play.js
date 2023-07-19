@@ -175,13 +175,12 @@ async function initiate(time) {
     // Make sure it's a multiple of 0.05
     var music = document.getElementById('music');
     var audio_dur = music.duration;
-    var vol = 0.9;
-    music.volume = vol;
+    music.volume = 1;
     
 
 
     var circle = document.getElementById("circle")
-    const initialDur = 6
+    const initialDur = 6.5
     const finalDur = 10
 
     // beatLength = 5.546
