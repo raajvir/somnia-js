@@ -84,6 +84,11 @@ async function instructions() {
     });
     await timer(3000)
     $("#alternating").fadeOut("slow", function () {
+        $('#alternating').text('make sure you have set the brightness and volume to 100%');
+        $("#alternating").delay(750).fadeIn("slow");
+    });
+    await timer(2500)
+    $("#alternating").fadeOut("slow", function () {
         $('#alternating').text('when the instructions disappear, set your phone beside you, facing the ceiling');
         $("#alternating").delay(750).fadeIn("slow");
     });
