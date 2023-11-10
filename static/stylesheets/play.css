@@ -36,8 +36,8 @@ body #circle {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  width: 80vh;
-  height: 80vh;
+  width: 40vh;
+  height: 40vh;
   background: rgba(0, 0, 0, 0);
 }
 

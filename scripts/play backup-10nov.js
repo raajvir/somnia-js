@@ -37,9 +37,9 @@ function endAll() {
 function play(type) {
     startAll();
     if (type === 0) {
-        console.log('10 minute sleep session initiated')
-        initiate(10);
-        window.timeW = 10;
+        console.log('8 minute sleep session initiated')
+        initiate(8);
+        window.timeW = 8;
     }
 
     else if (type === 1) {
@@ -180,8 +180,7 @@ async function initiate(time) {
     // Make sure it's a multiple of 0.05
     var music = document.getElementById('music');
     var audio_dur = music.duration;
-    music.volume = 0; // Start with volume at 0
-    fadeAudioIn(music, 1, 500);
+    music.volume = 1;
     
 
 
@@ -224,7 +223,7 @@ async function initiate(time) {
 
     circle.addEventListener('animationend', runAnimation);
     runAnimation();
-    /*     if (time === 10) {
+    /*     if (time === 8) {
             var arrReps = [11, 9, 9, 8, 7, 6, 5, 5, 4, 4]
             for (let i = 0; i < arrReps.length; i++) {
                 for (let j = 0; j < arrReps[i]; j++) {
@@ -248,22 +247,7 @@ async function initiate(time) {
             }
         } */
 }
-// Function to gradually increase the volume
-function fadeAudioIn(audioElement, finalVolume, duration) {
-    let fadeInterval = 200; // Interval in ms
-    let fadeStep = (finalVolume / duration) * fadeInterval;
-    let currentVolume = audioElement.volume;
 
-    let fadeAudio = setInterval(function () {
-        if (currentVolume < finalVolume) {
-            currentVolume += fadeStep;
-            if (currentVolume > finalVolume) currentVolume = finalVolume;
-            audioElement.volume = currentVolume;
-        } else {
-            clearInterval(fadeAudio);
-        }
-    }, fadeInterval);
-}
 async function restart() {
     console.log(window.timeW);
     initiate(window.timeW);
