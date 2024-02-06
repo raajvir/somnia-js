@@ -8,14 +8,14 @@ $mid: #9d9d9d;
 }
 
 * {
-  font-family: "Social";
+  font-family: "Social", sans-serif;
   transition: 0.15s ease-in-out;
 }
 
 body {
   background-color: $dark;
   /* animation: blink 10s ease infinite; */
-  font-family: "Social";
+
   overflow: hidden;
 
   #circle {

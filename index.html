@@ -42,8 +42,12 @@
         document.getElementById("body").style.backgroundImage = 'url("static/images/stars.svg")';
     </script>
     <div id="container" class="disappear" data-component="FormContainer">
+        <p style="color: grey; padding: 0; text-align: left; margin: 18px;">Version 7.2</p>
         <h2 data-component="Heading">Welcome to <b>Somnia</b></h2>
-        <p style="color: grey; padding: 0; text-align: center; margin: 0;">Version 7.13</p>
+        <p id="index-desc">
+            Choose between an 8 and 24 minute session.<br>
+            <b>Phone will switch off after the session ends.</b>
+        </p>
         <div class="buttons" class="disappear" data-component="ButtonCont">
             <div class="sq_btn disappear" role="button" onclick="play(0)" data-component="TenBtn">
                 10 min
@@ -53,6 +57,35 @@
             </div>
         </div>
     </div>
+    <div class="help disappear" id="helpclick">
+        <div class="help-button"></div>
+        <div class="help-inner">
+            <b>How does Somnia Work?</b>
+
+            <p>Click start and follow the instructions. The app will project a circle on the ceiling that slowly expands, and you should synchronize your breathing with it. Once the timer stops, the app will automatically close and go to sleep. <br><br>Visit <a href="https://somnia.app" style="color: black;">somnia.app</a> for more information.</p>
+        </div>
+        <div class="slider"></div>
+    </div>
+    <div class="nigga disappear"></div>
+    <script>
+        $(document).ready(function() {
+        var up = false;
+            $("#helpclick, .nigga").click(function() {
+            if (!up) {
+                $("#helpclick").animate({bottom: "0px"}, "fast");
+                $(".help-inner").css("background-color", "white");
+                $(".nigga").css("display", "block");
+                up = true;
+            } 
+            else {
+                $("#helpclick").animate({bottom: "-160px"}, "fast");
+                $(".help-inner").css("background-color", "");
+                $(".nigga").css("display", "none");
+                up = false;     
+            }
+            });
+        }); 
+    </script>
     <div class="instructions" id="instructions" data-component="Instructions">
         <h1 id="alternating" data-component="InstructionHeading"></h1>
     </div>
