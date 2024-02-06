@@ -21,12 +21,19 @@ async function startAll() {
 function endAll() {
     const collection = document.getElementsByClassName("disappear");
     for (let i = 0; i < collection.length; i++) {
-        collection[i].style.display = 'block';
+        if (collection[i].className.includes("nigga")) {
+            collection[i].style.display = 'none';
+        }
+        else {
+            collection[i].style.display = 'block';
+
+        }
     }
+
     document.getElementById("circle").style.display = 'none';
     document.getElementById("outC").style.display = 'none';
     document.getElementById("body").style.backgroundImage = 'url("static/images/stars.svg")';
-    document.getElementById("body").style.backgroundColor = "black";
+    document.getElementById("body").style.backgroundColor = "";
     document.getElementById("menu").style.display = "none";
     document.getElementById("instructions").style.display = 'none';
     music.pause();

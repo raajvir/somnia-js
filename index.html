@@ -42,7 +42,7 @@
         document.getElementById("body").style.backgroundImage = 'url("static/images/stars.svg")';
     </script>
     <div id="container" class="disappear" data-component="FormContainer">
-        <p style="color: grey; padding: 0; text-align: left; margin: 18px;">Version 7.2</p>
+        <p style="color: grey; padding: 0; text-align: left; margin: 18px;">Version 7.22</p>
         <h2 data-component="Heading">Welcome to <b>Somnia</b></h2>
         <p id="index-desc">
             Choose between an 8 and 24 minute session.<br>
@@ -62,7 +62,7 @@
         <div class="help-inner">
             <b>What is Somnia?</b>
 
-            <p>Somnia is a sleep app developed by Raajvir Vijay. <br>Click start and follow the instructions. The app will project a circle on the ceiling that slowly expands, and you should synchronize your breathing with it. Once the timer stops, the app will automatically close and go to sleep. <br><br>Visit <a href="https://somnia.app" style="color: black;">somnia.app</a> for more information.</p>
+            <p>Somnia is a sleep app developed by Raajvir Vijay. <br><br>Click start and follow the instructions. The app will project a circle on the ceiling that slowly expands, and you should synchronize your breathing with it. Once the timer stops, the app will automatically close and go to sleep. <br><br>Visit <a href="https://somnia.app" style="color: black;">somnia.app</a> for more information.</p>
         </div>
         <div class="slider"></div>
     </div>
@@ -70,6 +70,7 @@
     <script>
         $(document).ready(function() {
         var up = false;
+        $(".nigga").css("display", "none");
             $("#helpclick, .nigga").click(function() {
             if (!up) {
                 $("#helpclick").animate({bottom: "0px"}, "fast");
@@ -78,7 +79,7 @@
                 up = true;
             } 
             else {
-                $("#helpclick").animate({bottom: "-160px"}, "fast");
+                $("#helpclick").animate({bottom: "-200px"}, "fast");
                 $(".help-inner").css("background-color", "");
                 $(".nigga").css("display", "none");
                 up = false;     
